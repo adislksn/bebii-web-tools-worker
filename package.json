@@ -1,10 +1,10 @@
 {
   "name": "express-web-tools",
   "version": "1.0.0",
-  "main": "app.ts",
+  "main": "src/app.ts",
   "scripts": {
     "dev": "ts-node-dev --clear app.ts",
-    "start": "nodemon src/app.ts",
+    "start": "nodemon dist/app.js",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
