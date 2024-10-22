@@ -3,8 +3,8 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 // import cookieParser from 'cookie-parser'
-import { CONFIG } from './src/config'
-import { appRouterv1 } from './src/router'
+import { CONFIG } from './config'
+import { appRouterv1 } from './router'
 
 dotenv.config()
 const app: Express = express()
