@@ -1,9 +1,9 @@
 {
   "name": "express-web-tools",
   "version": "1.0.0",
-  "main": "app.ts",
+  "main": "src/app.ts",
   "scripts": {
-    "dev": "ts-node-dev --clear app.ts",
+    "dev": "ts-node-dev --clear src/app.ts",
     "start": "nodemon src/app.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",

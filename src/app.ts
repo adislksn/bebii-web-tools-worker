@@ -10,7 +10,9 @@ dotenv.config()
 const app: Express = express()
 const port = CONFIG.port || 3000
 
-app.use(cors({ origin: true, credentials: true }))
+app.use(cors(
+  // { origin: true, credentials: true }
+))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 app.use(bodyParser.json({ limit: '50mb' }))
 // app.use(cookieParser())
