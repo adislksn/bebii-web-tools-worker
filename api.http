@@ -1,8 +1,6 @@
 ### API Documentation TryOut-API
-# @hostname = http://127.0.0.1:3000/api/v1
-@hostname = https://bebii-web-tools-worker.vercel.app/api/v1
-# @healthCheck = http://127.0.0.1:3000/
-@healthCheck = https://bebii-web-tools-worker.vercel.app/
+@hostname = http://127.0.0.1:3000/api/v1
+@healthCheck = http://127.0.0.1:3000/
 
 @accessToken = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2VtYWlsLXJlc2VuZCIsImlhdCI6MTcxODQ3NTI5OSwiZXhwIjoxNzE4NDc4ODk5LCJuYmYiOjE3MTg0NzUyOTksImp0aSI6InFtck16bFI2ZnVrTUVXc3MiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsIm5hbWUiOiJTdXBlciBBZG1pbiIsInJvbGUiOiJTdXBlciBBZG1pbiIsImVtYWlsIjoic3VwZXJAZXhhbXBsZS5jb20ifQ.J19UuBmpEpxN4oY4tBu1bdgC-u7oppBsh19es72ztEPVEH3LNOa1zdAMFTNeC76z
 @tokenJWT = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzE1MzMyMDQ2LCJleHAiOjE3MTUzMzU2NDYsIm5iZiI6MTcxNTMzMjA0NiwianRpIjoiU2dTeldwdkNYOUg5UTh0RSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6IjAxNDhhNDkzLTA0YmItMzE1ZS1iOTgzLTgyM2MyM2RiZmU3MSIsImVtYWlsIjoic3VwZXJAZXhhbXBsZS5jb20ifQ.WAieJAhONZ_16axyHe8ENF-lusQP0_Doh6gmVVGeYlc
