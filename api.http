@@ -1,5 +1,6 @@
-### API Documentation TryOut-API
-@hostname = http://127.0.0.1:3000/api/v1
+### API Documentation tools-api
+@hostname = http://localhost:8000/api/v1
+# @hostname = http://103.31.38.113:8000/api/v1
 @healthCheck = http://127.0.0.1:3000/
 
 @accessToken = Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2VtYWlsLXJlc2VuZCIsImlhdCI6MTcxODQ3NTI5OSwiZXhwIjoxNzE4NDc4ODk5LCJuYmYiOjE3MTg0NzUyOTksImp0aSI6InFtck16bFI2ZnVrTUVXc3MiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyIsIm5hbWUiOiJTdXBlciBBZG1pbiIsInJvbGUiOiJTdXBlciBBZG1pbiIsImVtYWlsIjoic3VwZXJAZXhhbXBsZS5jb20ifQ.J19UuBmpEpxN4oY4tBu1bdgC-u7oppBsh19es72ztEPVEH3LNOa1zdAMFTNeC76z

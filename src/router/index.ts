@@ -5,7 +5,8 @@ import {
     getInstagram,
     getYoutube,
     getFacebook,
-    getTwitter
+    getTwitter,
+    encodeStringToBase64
 } from '../utils'
 
 export const appRouterv1 = async (app: Express): Promise<any> => {
@@ -17,7 +18,7 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
         const url = req.body.urls
         getTiktok(url).then((result) => {
             const data = {
-                video: result.data.video
+                video: encodeStringToBase64(result.data.video),
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
@@ -29,8 +30,8 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
         const url = req.body.urls
         getInstagram(url).then((result) => {
             const data = {
-                thumbnail: result.data[0].thumbnail,
-                video: result.data[0].url
+                thumbnail: encodeStringToBase64(result.data[0].thumbnail),
+                video: encodeStringToBase64(result.data[0].url)
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
@@ -42,12 +43,12 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
         const url = req.body.urls
         getYoutube(url).then((result) => {
             const data = {
-                title: result.data.title,
-                thumbnail: result.data.thumb,
-                video: result.data.video,
-                video_hd: result.data.video_hd,
-                audio: result.data.audio,
-                quality: result.data.quality
+                title: encodeStringToBase64(result.data.title),
+                thumbnail: encodeStringToBase64(result.data.thumb),
+                video: encodeStringToBase64(result.data.video),
+                video_hd: encodeStringToBase64(result.data.video_hd),
+                audio: encodeStringToBase64(result.data.audio),
+                quality: encodeStringToBase64(result.data.quality)
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
@@ -59,9 +60,9 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
         const url = req.body.urls
         getFacebook(url).then((result) => {
             const data = {
-                title: result.media.title,
-                video: result.media.sd,
-                video_hd: result.media.hd
+                title: encodeStringToBase64(result.media.title),
+                video: encodeStringToBase64(result.media.sd),
+                video_hd: encodeStringToBase64(result.media.hd)
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
@@ -73,8 +74,8 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
         const url = req.body.urls
         getTwitter(url).then((result) => {
             const data = {
-                video: result.data.SD,
-                video_hd: result.data.HD
+                video: encodeStringToBase64(result.data.SD),
+                video_hd: encodeStringToBase64(result.data.HD),
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
