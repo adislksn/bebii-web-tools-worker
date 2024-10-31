@@ -1,11 +1,11 @@
 import { type Express, type Request, type Response } from 'express'
-const { fbdown2 } = require("nayan-media-downloader")
 import { StatusCodes } from 'http-status-codes'
 import { 
     getTiktok, 
     getInstagram,
     getYoutube,
     getTwitter,
+    getFBInfo,
     encodeStringToBase64
 } from '../utils'
 
@@ -20,6 +20,9 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
             const data = {
                 video: encodeStringToBase64(result.data.video),
             }
+            if(!data){
+                res.status(StatusCodes.NOT_FOUND).send('Video not found')
+            }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
             res.status(StatusCodes.NOT_FOUND).send(error)
@@ -32,6 +35,9 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
             const data = {
                 thumbnail: encodeStringToBase64(result.data[0].thumbnail),
                 video: encodeStringToBase64(result.data[0].url)
+            }
+            if(!data){
+                res.status(StatusCodes.NOT_FOUND).send('Video not found')
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
@@ -50,6 +56,9 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
                 audio: encodeStringToBase64(result.data.audio),
                 quality: encodeStringToBase64(result.data.quality)
             }
+            if(!data){
+                res.status(StatusCodes.NOT_FOUND).send('Video not found')
+            }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
             res.status(StatusCodes.NOT_FOUND).send(error)
@@ -58,11 +67,15 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
 
     app.post('/api/v1/facebook', (req: Request, res: Response) => {
         const url = req.body.urls
-        fbdown2(url, 'Nayan').then((result: any) => {
+        getFBInfo(url).then((result: any) => {
             const media = {
-                title: encodeStringToBase64(result.media.title),
-                hd: encodeStringToBase64(result.media.hd),
-                sd: encodeStringToBase64(result.media.sd)
+                title: encodeStringToBase64(result.title),
+                thumbnail: encodeStringToBase64(result.thumbnail),
+                hd: encodeStringToBase64(result.hd),
+                sd: encodeStringToBase64(result.sd)
+            }
+            if(!media){
+                res.status(StatusCodes.NOT_FOUND).send('Video not found')
             }
             res.status(StatusCodes.OK).send(media)
         }).catch((error: any) => {
@@ -76,6 +89,9 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
             const data = {
                 video: encodeStringToBase64(result.data.SD),
                 video_hd: encodeStringToBase64(result.data.HD),
+            }
+            if(!data){
+                res.status(StatusCodes.NOT_FOUND).send('Video not found')
             }
             res.status(StatusCodes.OK).send(data)
         }).catch((error) => {
