@@ -1,10 +1,10 @@
 import { type Express, type Request, type Response } from 'express'
+const { fbdown2 } = require("nayan-media-downloader")
 import { StatusCodes } from 'http-status-codes'
 import { 
     getTiktok, 
     getInstagram,
     getYoutube,
-    getFacebook,
     getTwitter,
     encodeStringToBase64
 } from '../utils'
@@ -58,14 +58,14 @@ export const appRouterv1 = async (app: Express): Promise<any> => {
 
     app.post('/api/v1/facebook', (req: Request, res: Response) => {
         const url = req.body.urls
-        getFacebook(url).then((result) => {
-            const data = {
+        fbdown2(url, 'Nayan').then((result: any) => {
+            const media = {
                 title: encodeStringToBase64(result.media.title),
-                video: encodeStringToBase64(result.media.sd),
-                video_hd: encodeStringToBase64(result.media.hd)
+                hd: encodeStringToBase64(result.media.hd),
+                sd: encodeStringToBase64(result.media.sd)
             }
-            res.status(StatusCodes.OK).send(data)
-        }).catch((error) => {
+            res.status(StatusCodes.OK).send(media)
+        }).catch((error: any) => {
             res.status(StatusCodes.NOT_FOUND).send(error)
         })
     })
