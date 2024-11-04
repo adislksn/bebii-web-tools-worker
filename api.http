@@ -37,6 +37,15 @@ Accept: application/json
     "urls": "https://fb.watch/u_1yLxEJkX/"
 }
 
+### ✅ Youtube
+POST {{hostname}}/youtube
+Content-Type: application/json
+Accept: application/json
+
+{
+    "urls": "https://youtube.com/watch?v=FylHa4_neOA"
+}
+
 ### ✅ Twitter
 POST {{hostname}}/twitter
 Content-Type: application/json
@@ -44,13 +53,4 @@ Accept: application/json
 
 {
     "urls": "https://x.com/PicturesFoIder/status/1841465685588799572"
-}
-
-### ✅ Youtube
-POST {{hostname}}/youtube
-Content-Type: application/json
-Accept: application/json
-
-{
-    "urls": "https://www.youtube.com/watch?v=FylHa4_neOA"
 }

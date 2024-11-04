@@ -1,39 +1,53 @@
 
-const { ytdown, ndown, tikdown, twitterdown,fbdown2 } = require("nayan-media-downloader")
+const { ytdown, ndown, tikdown, twitterdown, fbdown2 } = require("nayan-media-downloader")
 const request = require("request")
 const key = "Nayan" //dont change key
+import { 
+	type FBResult,
+	type TiktokResult,
+	type InstagramResult,
+	type TwitterResult,
+} from '../types/nayan'
 
-export const getTiktok = async (url:string) => {
+export const getTiktok = async (url:string): Promise<TiktokResult> => {
 	var result = await tikdown(url)
+	if(!result.status){
+		throw { msg: result.msg || "Video not found" }
+	}
     return result
-
 }
-
+// TODO: Fix the return type of getYoutube
 export const getYoutube = async (url:string) => {
 	var result = await ytdown(url)
+	if(!result.status){
+		throw { msg: result.text || "Video not found" }
+	}
 	return result
 }
 
-export const getFacebook = async (url:string) => {
-	await fbdown2(url, key).then((result: any) => {
-		const media = {
-			title: Buffer.from(result.media.title).toString('base64'),
-			hd: Buffer.from(result.media.hd).toString('base64'),
-			sd: Buffer.from(result.media.sd).toString('base64')
+export const getFacebook = async (url: string): Promise<FBResult> => {
+	return await fbdown2(url, key).then((result:FBResult) => {
+		if(!result.status){
+			throw { msg: result.msg || "Video not found" }
 		}
-		console.log(media)
-		return media
+		return result
 	}).catch((error:any) => {
-		return error
+		throw { msg: "Video not found" }
 	})
 }
 
-export const getInstagram = async (url:string) => {
+export const getInstagram = async (url:string): Promise<InstagramResult> => {
 	var result = await ndown(url)
+	if(!result.status){
+		throw { msg: result.msg || "Video not found" }
+	}
 	return result
 }
 
-export const getTwitter = async (url:string) => {
+export const getTwitter = async (url:string): Promise<TwitterResult> => {
 	var result = await twitterdown(url)
+	if(!result.status){
+		throw { msg: result.msg || "Video not found" }
+	}
 	return result
 }

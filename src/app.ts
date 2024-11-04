@@ -22,7 +22,8 @@ app.use(function (req, res, next) {
     'Origin, X-Requested-With, content-type, Authorization, Content-Type'
   )
 //   CONSOLE.info(`[${req.method}] - ${req.url} - ${req.ip} - ${new Date().toISOString()} `)
-  next()
+  // res.setTimeout(300000);
+  next();
 })
 
 app.use('/public', express.static('public'))
